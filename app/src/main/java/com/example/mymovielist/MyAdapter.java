@@ -11,6 +11,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,10 +23,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.AllMovieHolder> {
 
     List<MyMovie> movies;
     Context context;
+    MyAdapterListener myAdapterListener1;
 
     public MyAdapter(List<MyMovie> movie1, Context context1) {
         movies = movie1;
         context = context1;
+
 
     }
 
@@ -57,7 +60,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.AllMovieHolder> {
     }
 
 
-    public class AllMovieHolder extends RecyclerView.ViewHolder  {
+    public class AllMovieHolder extends RecyclerView.ViewHolder {
         ImageView image;
         TextView name;
         TextView year;
@@ -77,16 +80,25 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.AllMovieHolder> {
             cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(context, AnotherActivity2.class);
-                    int position = getAdapterPosition();
-                    MyMovie movie = movies.get(position);
-                    intent.putExtra("Name", movie);
-
+                    if (myAdapterListener1 !=null) {
+                        //Intent intent = new Intent(context, AnotherActivity2.class);
+                        int position = getAdapterPosition();
+                        //MyMovie movie = movies.get(position);
+                        // intent.putExtra("Name", movie);
+                    }
 
                 }
             });
 
+
         }
     }
 
+    public void CallAdapter(MyAdapterListener myAdapterListener){
+        myAdapterListener1 = myAdapterListener;
+    };
+
+    public interface MyAdapterListener{
+        void MovieAdapterListener(int position);
+    }
 }
