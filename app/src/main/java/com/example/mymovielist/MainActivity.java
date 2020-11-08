@@ -11,14 +11,14 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    MyAdapter jamesBond;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ActionMovie yvonne = new ActionMovie();
+
 
 
 

@@ -1,12 +1,17 @@
 package com.example.mymovielist;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +19,11 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class ActionFragment extends Fragment {
+
+    MyAdapter jamesBond;
+    List<MyMovie> movies;
+    RecyclerView rv;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -49,16 +59,31 @@ public class ActionFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        ActionMovie actionHouse = new ActionMovie();
+        movies = actionHouse.mobileAction();
+
+
+        //this code will move me to another activity
+        jamesBond = new MyAdapter(movies, getActivity());
+        jamesBond.CallAdapter(new MyAdapter.MyAdapterListener() {
+            @Override
+            public void movieAdapterListener(int position) {
+                Intent intent = new Intent(getActivity(), AnotherActivity2.class);
+                MyMovie movie = movies.get(position);
+                intent.putExtra("Name", movie);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_action, container, false);
+        View view = inflater.inflate(R.layout.fragment_action, container, false);
+        rv = view.findViewById(R.id.recyclerView);
+        rv.setAdapter(jamesBond);
+        rv.setLayoutManager(new LinearLayoutManager(getActivity()));
+        return view;
     }
 }

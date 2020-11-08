@@ -2,26 +2,34 @@ package com.example.mymovielist;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Callable;
 
 public class ComedyMovie {
-    List<MyMovie> ComdeyList = new ArrayList<>();
+    List<MyMovie> ComedyList = new ArrayList<>();
 
     public List<MyMovie> RadioAction(){
-        return ComdeyList;
+        return ComedyList;
     }
 
     public ComedyMovie(){
         addMovie();
     }
     public void  addMovie(){
-        ComdeyList.add(TheBoys);
-        ComdeyList.add(HubieHalloween);
-        ComdeyList.add(BoratSubsequentMoviefilm);
-        ComdeyList.add(SchittsCreek);
-        ComdeyList.add(LoveandMonsters);
-        ComdeyList.add(EmilyinParis);
-        ComdeyList.add(TheWitches);
-        ComdeyList.add(HocusPocus);
+        ComedyList.add(TheBoys);
+        ComedyList.add(HubieHalloween);
+        ComedyList.add(BoratSubsequentMoviefilm);
+        ComedyList.add(SchittsCreek);
+        ComedyList.add(LoveandMonsters);
+        ComedyList.add(EmilyinParis);
+        ComedyList.add(TheWitches);
+        ComedyList.add(HocusPocus);
+        ComedyList.add(BoratCulturalLearningsofAmericaforMakeBenefitGloriousNationofKazakhstan);
+        ComedyList.add(OvertheMoon);
+        ComedyList.add(TheOffice);
+        ComedyList.add(ThisIsUs);
+        ComedyList.add(CobraKai);
+        ComedyList.add(OntheRocks);
+        ComedyList.add(TheAddamsFamily);
 
     }
     MyMovie TheBoys = new MyMovie("The Boys", "A group of vigilantes sets out to take down corrupt superheroes who abuse their superpowers.", 2019,
@@ -46,5 +54,26 @@ public class ComedyMovie {
 
     MyMovie HocusPocus = new MyMovie("Hocus Pocus", "A curious youngster moves to Salem, where he struggles to fit in before awakening a trio of diabolical witches that were executed in the 17th century.", 1993,
             "https://m.media-amazon.com/images/M/MV5BMWUxNWI0YTYtY2RiZS00ZjNmLTg4ZGUtNDI0Mzk4NmQ5NWE5XkEyXkFqcGdeQXVyNjk1Njg5NTA@._V1_UX67_CR0,0,67,98_AL_.jpg", 7);
+
+    MyMovie BoratCulturalLearningsofAmericaforMakeBenefitGloriousNationofKazakhstan = new MyMovie("Borat: Cultural Learnings of America for Make Benefit Glorious Nation of Kazakhstan", "Kazakh TV talking head Borat is dispatched to the United States to report on the greatest country in the world. With a documentary crew in tow, Borat becomes more interested in locating and marrying", 2006,
+            "https://m.media-amazon.com/images/M/MV5BMTk0MTQ3NDQ4Ml5BMl5BanBnXkFtZTcwOTQ3OTQzMw@@._V1_UX67_CR0,0,67,98_AL_.jpg", 7);
+
+    MyMovie OvertheMoon = new MyMovie("Over the Moon", "In this animated musical, a girl builds a rocket ship and blasts off, hoping to meet a mythical moon goddess.", 2020,
+            "https://m.media-amazon.com/images/M/MV5BNTI0ZjVhM2ItMmFkOS00ZmFiLTg4NGQtODJjNTZmMDYxMWMyXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_UX182_CR0,0,182,268_AL_.jpg", 6);
+
+    MyMovie TheOffice = new MyMovie("The Office", "A mockumentary on a group of typical office workers, where the workday consists of ego clashes, inappropriate behavior, and tedium", 2005,
+            "https://m.media-amazon.com/images/M/MV5BMDNkOTE4NDQtMTNmYi00MWE0LWE4ZTktYTc0NzhhNWIzNzJiXkEyXkFqcGdeQXVyMzQ2MDI5NjU@._V1_UX67_CR0,0,67,98_AL_.jpg", 9);
+
+    MyMovie ThisIsUs = new MyMovie(" This Is Us", "A heartwarming and emotional story about a unique set of triplets, their struggles and their wonderful parents.", 2016,
+            "https://m.media-amazon.com/images/M/MV5BYjNlOWY2OWEtMGQyOC00YWQ4LWJkMjUtYzU4NGEzNjM2MWY0XkEyXkFqcGdeQXVyODUxOTU0OTg@._V1_UX67_CR0,0,67,98_AL_.jpg", 8);
+
+    MyMovie  CobraKai = new MyMovie(" Cobra Kai", "Decades after their 1984 All Valley Karate Tournament bout, a middle-aged Daniel LaRusso and Johnny Lawrence find themselves martial-arts rivals again.", 2018,
+            "https://m.media-amazon.com/images/M/MV5BYTI3NjcxNjctNzZhZS00NjQwLTg4NDEtMmQzOGJiYTUwNWFjXkEyXkFqcGdeQXVyOTA5NzQ0MDQ@._V1_UY98_CR1,0,67,98_AL_.jpg", 8);
+
+    MyMovie OntheRocks = new MyMovie("On the Rocks", "A young mother reconnects with her larger-than-life playboy father on an adventure through New York.", 2020,
+            "https://m.media-amazon.com/images/M/MV5BZTEwY2M0NzAtYjBiMi00Yzg3LWE0ZGYtYTYwODEzMWU0MDFhXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_UX67_CR0,0,67,98_AL_.jpg", 6);
+
+    MyMovie TheAddamsFamily = new MyMovie("The Addams Family", "Con artists plan to fleece an eccentric family using an accomplice who claims to be their long-lost uncle.", 1991,
+            "https://m.media-amazon.com/images/M/MV5BODc1NmY0MDUtNjUzNS00ODdhLWJlN2ItMTgwZjczZjI0MDkyXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_UY98_CR4,0,67,98_AL_.jpg", 7);
 
 }

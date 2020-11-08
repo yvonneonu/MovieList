@@ -2,4 +2,7 @@
     <string name="app_name">My Movie List</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nav_inbox">Action</string>
+    <string name="nav_output">Drama</string>
+    <string name="nav_comedy">Comedy</string>
 </resources>

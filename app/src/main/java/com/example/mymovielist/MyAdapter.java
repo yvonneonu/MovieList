@@ -11,7 +11,6 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,7 +27,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.AllMovieHolder> {
     public MyAdapter(List<MyMovie> movie1, Context context1) {
         movies = movie1;
         context = context1;
-
 
     }
 
@@ -83,6 +81,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.AllMovieHolder> {
                     if (myAdapterListener1 !=null) {
                         //Intent intent = new Intent(context, AnotherActivity2.class);
                         int position = getAdapterPosition();
+                        myAdapterListener1.movieAdapterListener(position);
                         //MyMovie movie = movies.get(position);
                         // intent.putExtra("Name", movie);
                     }
@@ -99,6 +98,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.AllMovieHolder> {
     };
 
     public interface MyAdapterListener{
-        void MovieAdapterListener(int position);
+        void movieAdapterListener(int position);
     }
 }
