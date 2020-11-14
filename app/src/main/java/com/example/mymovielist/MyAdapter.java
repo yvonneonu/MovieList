@@ -48,7 +48,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.AllMovieHolder> {
                 Glide.with(context)
                 .asBitmap()
                         .load(movie.getImage())
-                .placeholder(R.drawable.ramage)
+                .placeholder(R.drawable.rampage)
                 .into(holder.image);
     }
 
