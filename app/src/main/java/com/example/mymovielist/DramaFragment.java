@@ -1,12 +1,17 @@
 package com.example.mymovielist;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,6 +20,9 @@ import android.view.ViewGroup;
  */
 public class DramaFragment extends Fragment {
 
+    MyAdapter dramaFilm;
+    List<MyMovie> dramaMovies;
+    RecyclerView rv;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -49,16 +57,33 @@ public class DramaFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        DramaMovie dramaHouse = new DramaMovie();
+        dramaMovies = dramaHouse.funnyMovie();
+
+        dramaFilm = new MyAdapter(dramaMovies, getActivity());
+        dramaFilm.CallAdapter(new MyAdapter.MyAdapterListener() {
+            @Override
+            public void movieAdapterListener(int position) {
+                Intent intent = new Intent(getActivity(), AnotherActivity2.class);
+                MyMovie movie = dramaMovies.get(position);
+                intent.putExtra("Name", movie);
+                startActivity(intent);
+            }
+        });
+
+
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_action, container, false);
+        View view = inflater.inflate(R.layout.fragment_action, container, false);
+        rv = view.findViewById(R.id.recyclerView);
+        rv.setAdapter(dramaFilm);
+        rv.setLayoutManager(new LinearLayoutManager(getActivity()));
+        return view;
     }
 }
