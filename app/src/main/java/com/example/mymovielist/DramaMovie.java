@@ -28,6 +28,7 @@ public class DramaMovie {
         DramaList.add(StarTrekDiscovery);
         DramaList.add(GameofThrones);
         DramaList.add(HisDarkMaterials);
+        DramaList.add(KnockKnock);
     }
 
     MyMovie TheQueensGambit = new MyMovie("The Queen's Gambit", "Orphaned at 9, prodigious introvert Beth Harmon discovers and masters the game of chess in 1960s USA. But, child stardom comes at a price.",
